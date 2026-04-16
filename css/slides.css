@@ -1,0 +1,51 @@
+.tarjeta_slider {
+  position: relative;
+  height: 100vh;
+}
+
+.slider-bg {
+  position: absolute;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url('../assets/fondo_terapias.jpeg');
+  background-size: cover;
+  background-position: center;
+}
+
+.text-slider {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+}
+
+.text-slider .splide__track,
+.text-slider .splide__list,
+.text-slider .splide__slide {
+  height: 100%;
+}
+
+.splide__slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide-content {
+  background: #5f4b9362;
+  border: 2px solid var(--color-primary);
+  border-radius: 28px;
+  padding: 30px;
+  color: white;
+  text-align: center;
+}
+
+.slide-content h2 {
+  font-size: clamp(20px, 4vw, 32px);
+  margin: 10px 0;
+  color: white;
+}
+
+.slide-content p {
+  font-size: clamp(15px, 2vw, 20px);
+  color: white;
+}

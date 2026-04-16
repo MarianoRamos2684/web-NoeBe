@@ -1,0 +1,269 @@
+:root {
+  --color-primary: #4b00b2;
+  --color-secondary: #2e0854;
+  --color-bordes: #9370db;
+  --color-letras: #c0c0c0;
+  --color-resalteRosa: #d87093;
+  --color-background: #f4f1f8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: var(--color-background);
+}
+
+/* ===== TARJETAS ===== */
+
+.tarjeta_inicio,
+.tarjeta_login {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.tarjeta_inicio {
+  background: url('../assets/fondo.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.tarjeta_bruma {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: url('../assets/fondo_brumas.jpeg') no-repeat center center;
+  background-size: cover;
+}
+
+.inicio {
+  width: 70%;
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: #5f4b934b;
+  border-radius: 28px;
+  border: 2px solid var(--color-primary);
+}
+/* ===== LOGIN ===== */
+
+.animacion {
+  width: clamp(320px, 90%, 480px);
+  height: 450px;           
+  max-height: 85vh;
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  border: 2px solid var(--color-primary);
+  background: rgba(255,255,255,0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* pantallas */
+.login,
+.registrarse {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 25px;
+  transition: all 0.4s ease;
+}
+
+/* estados */
+.login {
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 2;
+}
+
+.registrarse {
+  opacity: 0;
+  transform: translateX(100%);
+  z-index: 1;
+}
+
+.animacion.show-register .login {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.animacion.show-register .registrarse {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* logo */
+.LogoCompletoLogin {
+  width: clamp(180px, 40vw, 400px);
+  margin: 0px;
+  display: block;
+}
+
+/* textos */
+h2 {
+  font-size: clamp(20px, 4vw, 32px);
+  margin: 10px 0;
+  color: var(--color-primary);
+}
+
+h3 {
+  font-size: clamp(14px, 2vw, 18px);
+  color: var(--color-primary);
+  margin-bottom: 20px;
+}
+
+.inicio p {
+  font-size: clamp(15px, 2vw, 20px);
+  color: white;
+  text-align: center;
+}
+
+p, a {
+  font-size: clamp(15px, 2vw, 20px);
+  color: var(--color-primary);
+  text-align: center;
+}
+
+/* formulario */
+form {
+  width: 100%;
+  max-height: 260px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* inputs */
+.textbox {
+  position: relative;
+  width: 100%;
+}
+
+input, button {
+  width: 100%;
+  height: 42px;
+  padding: 0 15px;
+  border-radius: 25px;
+  border: none;
+}
+
+input {
+  background: white;
+  outline: none;
+}
+
+.textbox label {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: var(--color-primary);
+  transition: 0.3s;
+}
+
+.textbox input:focus {
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+.textbox input:is(:focus, :not(:placeholder-shown)) ~ label {
+  transform: translateY(-140%) scale(0.75);
+}
+
+/* botón */
+button {
+  background: var(--color-primary);
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--color-secondary);
+}
+
+/* icono contraseña */
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* footer */
+footer {
+  width: 100%;
+  height: 50px;
+  background: #5f4b93;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer p {
+  color: white;
+  font-size: 12px;
+}
+
+
+/* ========================= */
+/* 📱 MOBILE */
+/* ========================= */
+
+@media (max-width: 480px) {
+
+  .animacion {
+    width: 95%;
+    border-radius: 20px;
+    padding: 10px;
+  }
+
+  .login,
+  .registrarse {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  h3 {
+    font-size: 14px;
+  }
+
+  form {
+    max-height: none;       /* 🔥 elimina scroll interno */
+    overflow: visible;
+  }
+
+  input, button {
+    height: 45px;
+    font-size: 14px;
+  }
+
+  .LogoCompletoLogin {
+    width: 70%;
+  }
+
+}
